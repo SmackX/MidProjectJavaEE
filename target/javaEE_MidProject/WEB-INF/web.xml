@@ -31,12 +31,30 @@
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>AddLike</servlet-name>
+    <servlet-class>servlets.functional.AddLike</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddLike</servlet-name>
+    <url-pattern>/AddLike</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Crud</servlet-name>
     <servlet-class>servlets.functional.CRUD</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Crud</servlet-name>
     <url-pattern>/Crud</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>CheckInclude</servlet-name>
+    <servlet-class>servlets.additional.CheckInclude</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckInclude</servlet-name>
+    <url-pattern>/Check</url-pattern>
   </servlet-mapping>
 
   <filter>

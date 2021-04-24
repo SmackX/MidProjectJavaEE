@@ -11,21 +11,21 @@
     <title>Title</title>
 </head>
 <body>
-
+<%@include file="Header.jsp"%>
 <form name="input" action="Crud" method="">
     <table>
         <tr>
             <td>Text1: </td>
             <td><input type="text" name="text1" required></td>
         </tr>
-        <tr>
+        <%--<tr>
             <td>text2: </td>
             <td><input type="text" name="text2" required></td>
         </tr>
         <tr>
             <td>text3: </td>
             <td><input type="text" name="text3" required></td>
-        </tr>
+        </tr>--%>
         <tr>
             <td></td>
             <td><input type="submit" value="Push"></td>
@@ -33,5 +33,7 @@
     </table>
 
 </form >
+
+
 </body>
 </html>

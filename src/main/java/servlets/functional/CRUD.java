@@ -35,12 +35,11 @@ public class CRUD extends HttpServlet {
         System.out.println("Role this user: "+role + " Login: " + login + " pass:" + pass);
         if (role.equals(User.Role.USER) || role.equals(User.Role.ADMIN)) {
             String text1 = (String) req.getParameter("text1");
-            String text2 = (String) req.getParameter("text2");
-            String text3 = (String) req.getParameter("text3");
-            list.add(text1);
-            list.add(text2);
-            list.add(text3);
-
+//            String text2 = (String) req.getParameter("text2");
+//            String text3 = (String) req.getParameter("text3");
+//            list.add(text2);
+//            list.add(text3);
+            session.setAttribute("text", text1);
 
             out.println("<html><body>");
             for (int i = 0; i < list.size(); i++) {
@@ -50,6 +49,7 @@ public class CRUD extends HttpServlet {
         }else {
             out.println("access denied");
         }
+        req.getRequestDispatcher("index.jsp").forward(req,resp);
     }
     public void Push(){
 

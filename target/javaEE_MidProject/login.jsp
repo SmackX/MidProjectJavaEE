@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+<%@include file="Header.jsp"%>
 <h3><a href="index.jsp">login</a></h3>
 <h1>Вход в систему</h1><br>
     <form method="post" action="AuthFilter">
