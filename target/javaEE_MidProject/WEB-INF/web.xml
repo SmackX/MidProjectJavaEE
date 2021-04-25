@@ -32,7 +32,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>AddLike</servlet-name>
-    <servlet-class>servlets.functional.AddLike</servlet-class>
+    <servlet-class>servlets.functional.Like</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddLike</servlet-name>
@@ -45,6 +45,14 @@
   <servlet-mapping>
     <servlet-name>Crud</servlet-name>
     <url-pattern>/Crud</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>New_Post</servlet-name>
+    <servlet-class>servlets.functional.New_Post</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>New_Post</servlet-name>
+    <url-pattern>/New_Post</url-pattern>
   </servlet-mapping>
 
 

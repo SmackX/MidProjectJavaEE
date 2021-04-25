@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Header</title>
+    <title>My forum</title>
     <style>
         .header{
             background-color: darkorange;
@@ -42,7 +42,6 @@
     <div class="header">
 
         <a href="index.jsp">Home</a>
-        <a href="Forum1.jsp">Post</a>
         <a href="Theme1.jsp">Forum</a>
         <a href="Check" id="login">login</a>
     </div>

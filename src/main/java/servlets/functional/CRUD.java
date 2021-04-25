@@ -1,7 +1,9 @@
 package servlets.functional;
 
 import dao.UserDao;
+import model.Article;
 import model.User;
+import dao.PostDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -11,14 +13,17 @@ import java.util.ArrayList;
 
 public class CRUD extends HttpServlet {
     public String text = "";
-    ArrayList list;
+    //ArrayList list;
 
     private static UserDao dao;
+    private static PostDAO dao2;
     @Override
     public void init() throws ServletException {
-         list = new ArrayList();
+         //list = new ArrayList();
          dao = new UserDao();
          dao.getBD();
+         dao2 = new PostDAO();
+         dao2.getBD();
     }
 
     @Override
@@ -29,29 +34,23 @@ public class CRUD extends HttpServlet {
         PrintWriter out = resp.getWriter();
 
 
+
         String login = (String) session.getAttribute("login");
+        int userID = dao.getId(login);
         String pass = (String) session.getAttribute("password");
         User.Role role = dao.getRoleByLoginPassword( login, pass);
-        System.out.println("Role this user: "+role + " Login: " + login + " pass:" + pass);
+
         if (role.equals(User.Role.USER) || role.equals(User.Role.ADMIN)) {
             String text1 = (String) req.getParameter("text1");
-//            String text2 = (String) req.getParameter("text2");
-//            String text3 = (String) req.getParameter("text3");
-//            list.add(text2);
-//            list.add(text3);
             session.setAttribute("text", text1);
-
-            out.println("<html><body>");
-            for (int i = 0; i < list.size(); i++) {
-                out.println("<h1>" + i + ": " + list.get(i) + "</h1>");
-            }
-            out.println("</body></html>");
+            dao2.AddToDB(dao2.sizeStore(), userID, text1,0);
+            req.getRequestDispatcher("New_Post").forward(req,resp);
         }else {
             out.println("access denied");
         }
-        req.getRequestDispatcher("index.jsp").forward(req,resp);
-    }
-    public void Push(){
 
-        System.out.println("Good!");    }
+    }
+
+
+
 }

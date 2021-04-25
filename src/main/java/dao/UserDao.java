@@ -1,5 +1,6 @@
 package dao;
 
+import model.Article;
 import model.User;
 
 import java.sql.*;
@@ -149,7 +150,6 @@ public class UserDao {
             throwables.printStackTrace();
         }
     }
-
     public void DeleteFromDB(int id){
         try {
             Statement statement = connection.createStatement();
@@ -160,5 +160,33 @@ public class UserDao {
         }catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+    public boolean isUser(int id){
+        boolean auth = false;
+        User user;
+        for (int i = 0; i < store.size(); i++) {
+            user = store.get(i);
+            if (user.getId() == id){
+                auth = true;
+                break;
+            }
+        }
+        return auth;
+    }
+    public String getName(int id){
+        User user = null;
+        user = store.get(id);
+
+        return user.getLogin();
+    }
+    public int getId(String name){
+        User user = null;
+        for (int i = 0; i < store.size(); i++) {
+            user = store.get(i);
+            if (user.getLogin().equals(name)){
+                break;
+            }
+        }
+        return user.getId();
     }
 }
