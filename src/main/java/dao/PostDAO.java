@@ -30,7 +30,7 @@ public class PostDAO {
     }
 
     public void getBD(){
-
+        store.clear();
         try {
             Statement statement = connection.createStatement();
             String SQL = "SELECT * FROM article ";
@@ -75,11 +75,27 @@ public class PostDAO {
             throwables.printStackTrace();
         }
     }
+    /*public void DeleteFromDB(int id){
+        try {
+            PreparedStatement st = connection.prepareStatement("DELETE FROM article WHERE id ="+id);
+            st.setInt(1, id);
+            st.executeUpdate();
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }*/
     public void DeleteFromDB(int id){
         try {
-            String SQL = "DELETE FROM article WHERE id ="+id;
+            /*String SQL = "DELETE FROM article WHERE id ="+id;
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-            preparedStatement.execute();
+            preparedStatement.executeUpdate(SQL);
+            preparedStatement.close();
+            */
+            PreparedStatement prepStatement;
+            String sql = "DELETE FROM article WHREE id = ?";
+            prepStatement = connection.prepareStatement(sql);
+            prepStatement.setInt(1, id);
+            prepStatement.executeUpdate();
             System.out.println("Well done! Post delete!");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -126,6 +142,5 @@ public class PostDAO {
     public int sizeStore(){
         return store.size();
     }
-
 
 }

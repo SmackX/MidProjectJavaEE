@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-    <h3><a href="index.jsp">Home</a></h3>
+    <%@include file="Header.jsp"%>
     <h1>Hello ADMIN!</h1>
     <a href="logout">Logout</a>
 </body>

@@ -187,6 +187,7 @@ public class UserDao {
                 break;
             }
         }
+        System.out.println(user.getId());
         return user.getId();
     }
 }
